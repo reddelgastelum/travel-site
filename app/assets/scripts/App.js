@@ -1,9 +1,3 @@
-var Person = require('./modules/Person');
+var MobileMenu = require('./modules/mobileMenu');
 
-alert("Testing 123");
-
-var john = new Person("John Doe", "blue");
-john.greet();
-
-var jane = new Person("Jane Smith", "green");
-jane.greet();
+var mobileMenu = new MobileMenu();
