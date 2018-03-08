@@ -1,5 +1,5 @@
 var $ = require('jquery'),
-waypoints = require('../../../../node_modules/waypoints/lib/noframework.waypoints')
+waypoints = require('../../../../node_modules/waypoints/lib/noframework.waypoints');
 
 class RevealOnScroll {
   constructor(els, offset) {
