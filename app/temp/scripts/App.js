@@ -48,11 +48,13 @@
 	var RevealOnScroll = __webpack_require__(3);
 	var StickyHeader = __webpack_require__(5);
 	var $ = __webpack_require__(2);
+	var Modal = __webpack_require__(7);
 
 	var mobileMenu = new MobileMenu();
 	new RevealOnScroll($(".feature-item"), "85%");
 	new RevealOnScroll($(".testimonial"), "60%");
 	var stickyHeader = new StickyHeader();
+	var modal = new Modal();
 
 
 /***/ }),
@@ -11575,6 +11577,51 @@
 
 	}));
 
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(2);
+
+	class Modal {
+	  constructor() {
+	    this.openModalButton = $('.open-modal');
+	    this.modal = $('.modal');
+	    this.closeModalButton = $('.modal__close');
+	    this.events();
+	  }
+
+	  events() {
+	    // clicking the open modal button
+	    this.openModalButton.click(this.openModal.bind(this));
+
+	    // clicking the x close modal button
+	    this.closeModalButton.click(this.closeModal.bind(this));
+
+	    // pushes any key
+	    $(document).keyup(this.keyPressHandler.bind(this));
+
+	  }
+
+	  keyPressHandler(e) {
+	    if (e.keyCode == 27) {
+	      this.closeModal();
+	    }
+	  }
+
+	  openModal() {
+	    this.modal.addClass('modal--is-visible');
+	    return false;
+	  }
+
+	  closeModal() {
+	    this.modal.removeClass('modal--is-visible');
+	  }
+	}
+
+	module.exports = Modal;
 
 
 /***/ })
